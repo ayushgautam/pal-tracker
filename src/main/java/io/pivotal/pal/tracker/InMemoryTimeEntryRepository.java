@@ -7,14 +7,11 @@ import java.util.List;
 public class InMemoryTimeEntryRepository implements TimeEntryRepository {
 
 
-//    ArrayList<TimeEntry> list = new  ArrayList<TimeEntry>();
     HashMap<Integer,TimeEntry> hlist = new HashMap<Integer, TimeEntry>();
     Integer counter =1;
 
     public TimeEntry create(TimeEntry te)
     {
-
-//        list.add(te);
 
         te.setId(counter);
         hlist.putIfAbsent(counter,te);
@@ -55,7 +52,6 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
 
         timeEntry.setId(id);
         hlist.replace(Math.toIntExact(id),timeEntry);
-//        list.add((int)id-1,timeEntry);
 
         return  hlist.get(Math.toIntExact(id));
     }
@@ -63,15 +59,8 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
     public void delete(long id)
     {
 
-       // ArrayList<TimeEntry> templist = new ArrayList<>();
         if(id>0){
             hlist.remove(Math.toIntExact(id));
-//            list.remove((int)id-1);
-         /*   list.forEach(t->{
-                templist.add(t);
-            });
-*/
-          //  list = templist;
         }
 
 
