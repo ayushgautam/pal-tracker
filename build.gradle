@@ -30,7 +30,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
     compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.7")
     compile("org.springframework.boot:spring-boot-starter-jdbc:$springBootVersion")
-
+    compile("org.springframework.boot:spring-boot-starter-security:$springBootVersion")
     compile("mysql:mysql-connector-java:6.0.6")
     compile("org.springframework.boot:spring-boot-starter-actuator:$springBootVersion")
 
@@ -44,6 +44,7 @@ bootRun.environment([
         "SPRING_DATASOURCE_URL": developmentDbUrl,
         "MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE": "*",
         "MANAGEMENT_ENDPOINT_HEALTH_SHOWDETAILS": "always",
+        "HTTPS_DISABLED":"true"
 
 ])
 
@@ -53,6 +54,7 @@ test.environment([
         "SPRING_DATASOURCE_URL": testDbUrl,
         "MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE": "*",
         "MANAGEMENT_ENDPOINT_HEALTH_SHOWDETAILS": "always",
+        "HTTPS_DISABLED":"true",
 
 ])
 
